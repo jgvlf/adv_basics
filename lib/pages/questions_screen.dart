@@ -1,3 +1,4 @@
+import 'package:adv_basics/utils/styled_widget.dart';
 import 'package:flutter/material.dart';
 
 class QuestionsScreen extends StatefulWidget {
@@ -12,6 +13,6 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(context) {
-    return const Text("Question Text");
+    return const StyledWidget(child: const Text("Question Text"));
   }
 }
