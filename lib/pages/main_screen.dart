@@ -14,19 +14,11 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  Widget? activeScreen;
-
-  @override
-  void initState() {
-    activeScreen = Home(
-      onPressed: switchScreen,
-    );
-    super.initState();
-  }
+  var activeScreen = 'start-screen';
 
   void switchScreen() {
     setState(() {
-      activeScreen = const QuestionsScreen();
+      activeScreen = 'question-screen';
     });
   }
 
@@ -39,7 +31,9 @@ class _MainScreenState extends State<MainScreen> {
             Color.fromARGB(255, 109, 22, 176),
             Color.fromARGB(255, 133, 21, 177),
           ],
-          child: activeScreen,
+          child: activeScreen == 'start-screen'
+              ? Home(onPressed: switchScreen)
+              : const QuestionsScreen(),
         ),
       ),
     );
