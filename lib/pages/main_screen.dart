@@ -24,6 +24,12 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(context) {
+    Widget screenWidget = Home(onPressed: switchScreen);
+
+    if (activeScreen == 'question-screen') {
+      screenWidget = const QuestionsScreen();
+    }
+
     return MaterialApp(
       home: Scaffold(
         body: GradientContainer(
@@ -31,9 +37,7 @@ class _MainScreenState extends State<MainScreen> {
             Color.fromARGB(255, 109, 22, 176),
             Color.fromARGB(255, 133, 21, 177),
           ],
-          child: activeScreen == 'start-screen'
-              ? Home(onPressed: switchScreen)
-              : const QuestionsScreen(),
+          child: screenWidget,
         ),
       ),
     );
