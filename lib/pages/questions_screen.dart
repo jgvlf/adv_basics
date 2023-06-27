@@ -13,6 +13,16 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
+  int currentQuestionIndex = 0;
+
+  void answerQuestion() {
+    setState(
+      () {
+        currentQuestionIndex++;
+      },
+    );
+  }
+
   @override
   Widget build(context) {
     final currentQuestions = questions[currentQuestionIndex];
@@ -32,7 +42,10 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           ),
           ...currentQuestions.getShuffleAnswers().map(
             (answer) {
-              return AnswerButton(answer, answerQuestion);
+              return AnswerButton(
+                answer,
+                answerQuestion,
+              );
             },
           ),
         ],
