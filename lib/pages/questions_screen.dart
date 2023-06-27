@@ -15,35 +15,11 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(context) {
-    final currentQuestions = questions[0];
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        StyledText(
-          currentQuestions.text,
-          color: Colors.white,
-          fontSize: 16,
-        ),
-        const SizedBox(
-          height: 30,
-        ),
-        AnswerButton(
-          currentQuestions.answers[0],
-          () {},
-        ),
-        AnswerButton(
-          currentQuestions.answers[1],
-          () {},
-        ),
-        AnswerButton(
-          currentQuestions.answers[2],
-          () {},
-        ),
-        AnswerButton(
-          currentQuestions.answers[3],
-          () {},
-        ),
-      ],
+          ...currentQuestions.getShuffleAnswers().map(
+            (answer) {
+              return AnswerButton(answer, answerQuestion);
+            },
+          ),
     );
   }
 }
