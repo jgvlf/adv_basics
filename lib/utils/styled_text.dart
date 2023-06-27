@@ -12,6 +12,7 @@ class StyledText extends StatelessWidget {
     return Text(
       data,
       style: TextStyle(color: color ?? Colors.white, fontSize: fontSize ?? 24),
+      textAlign: TextAlign.center,
     );
   }
 }
