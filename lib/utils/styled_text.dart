@@ -11,7 +11,10 @@ class StyledText extends StatelessWidget {
   Widget build(context) {
     return Text(
       data,
-      style: TextStyle(color: color ?? Colors.white, fontSize: fontSize ?? 24),
+      style: TextStyle(
+        color: color ?? Colors.white,
+        fontSize: fontSize ?? 24,
+      ),
       textAlign: TextAlign.center,
     );
   }

@@ -20,7 +20,10 @@ class Home extends StatelessWidget {
         const SizedBox(
           height: 100,
         ),
-        const StyledText('Learn Flutter the fun way!'),
+        const StyledText(
+          'Learn Flutter the fun way!',
+          color: Color.fromARGB(255, 239, 151, 255),
+        ),
         const SizedBox(
           height: 80,
         ),

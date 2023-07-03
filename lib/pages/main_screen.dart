@@ -1,7 +1,9 @@
 import 'package:adv_basics/data/questions.dart';
 import 'package:adv_basics/pages/home.dart';
 import 'package:adv_basics/pages/questions_screen.dart';
+import 'package:adv_basics/pages/results_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../utils/gradient_container.dart';
 
@@ -28,8 +30,8 @@ class _MainScreenState extends State<MainScreen> {
     selectedAnswers.add(answer);
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        activeScreen = 'start-screen';
-        selectedAnswers.clear();
+        activeScreen = 'results-screen';
+        // selectedAnswers.clear();
       });
     }
   }
@@ -44,7 +46,14 @@ class _MainScreenState extends State<MainScreen> {
       );
     }
 
+    if (activeScreen == 'results-screen') {
+      screenWidget = ResultsScreen(
+        chosenAnswers: selectedAnswers,
+      );
+    }
+
     return MaterialApp(
+      theme: ThemeData(textTheme: GoogleFonts.latoTextTheme()),
       home: Scaffold(
         body: GradientContainer(
           const [
