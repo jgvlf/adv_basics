@@ -4,7 +4,9 @@ import 'package:adv_basics/utils/styled_text.dart';
 import 'package:flutter/material.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+  const QuestionsScreen({super.key, required this.onSelectAnswer});
+
+  final void Function(String answer) onSelectAnswer;
 
   @override
   State<QuestionsScreen> createState() {
@@ -15,7 +17,8 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   int currentQuestionIndex = 0;
 
-  void answerQuestion() {
+  void answerQuestion(String answer) {
+    widget.onSelectAnswer(answer);
     setState(
       () {
         currentQuestionIndex++;
@@ -44,7 +47,9 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             (answer) {
               return AnswerButton(
                 answer,
-                answerQuestion,
+                () {
+                  answerQuestion(answer);
+                },
               );
             },
           ),
