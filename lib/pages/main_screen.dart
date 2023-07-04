@@ -3,7 +3,6 @@ import 'package:adv_basics/pages/home.dart';
 import 'package:adv_basics/pages/questions_screen.dart';
 import 'package:adv_basics/pages/results_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../utils/gradient_container.dart';
 
@@ -53,7 +52,7 @@ class _MainScreenState extends State<MainScreen> {
     }
 
     return MaterialApp(
-      theme: ThemeData(textTheme: GoogleFonts.latoTextTheme()),
+      theme: ThemeData(fontFamily: 'Lato'),
       home: Scaffold(
         body: GradientContainer(
           const [
